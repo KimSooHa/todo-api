@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 12341234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  messages:
+#    basename: messages,errors  # 에러메시지
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # create: 자동으로 테이블 만들어줌, 개발 단계에서는 update, 운영에서는 validate 권장
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    database: mysql
+
+org:
+  gradle:
+    jvmargs: -Xmx1g -XX:+UseParallelGC -XX:+UseStringDeduplication
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+#    org.hibernate.type: trace #띄어쓰기 2칸
+
+server:
+  port: 8080
